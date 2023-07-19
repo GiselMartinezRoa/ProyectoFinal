@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useAuth0 } from '@auth0/auth0-react';
+import Home from './pages/Home';
+import {Login} from './auth/Login';
+import {Logout} from './auth/Logout';
+import { Link, Route,Routes } from 'react-router-dom';
+import { Favorites } from './pages/Favorites';
 
 function App() {
+  const {isAuthenticated} =useAuth0();
   return (
-    <div className="App">
+    <div className="App-d-flex justify-content-center" role="group" aria-label="Basic example">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+         {isAuthenticated ? (
+          <>
+          <nav class="navbar bg-body-tertiary border">
+          <Link to='/Favorites'><h5>Favoritos</h5></Link>
+          <Link to='/home'><h5>Home</h5></Link>
+          <Link to='/logout'><h5>Logout</h5></Link>
+          </nav>
+          </>
+         ): (
+          <Login/>
+         )}  
       </header>
+
+      <Routes>
+        <Route path='/favorites' element={<Favorites/>}/>
+        <Route path='/home' element={<Home/>}/>
+        <Route path='/logout' element={<Logout/>}/>
+      </Routes>
     </div>
   );
 }
