@@ -5,28 +5,28 @@ export const Favorites = () => {
     const dispatch = useDispatch();
     const { celebrities_List } = useSelector(state => state.cel);
     return (
-        <p>
-            <b>
-            <Fragment>
-            <div class="d-flex justify-content-center"><h3>Listado de Favoritos</h3></div>
-            <table class="table">
-                <thead class="table-dark">
+
+        <Fragment>
+            <br></br>
+            <div class="d-flex justify-content-center"><h2>Listado de Favoritos</h2></div>
+            <br>
+            </br><table class="table">
+                <thead>
                     <tr>
-                        <th scope='col'>ID </th>
-                        <th scope='col'>Nombre </th>
-                        <th scope='col'>Nacionalidad </th>
-                        <th scope='col'>Edad </th>
+                        <th class="table-success text-center" scope='col'>ID </th>
+                        <th tr class="table-danger text-center" scope='col'>NOMBRE </th>
+                        <th class="table-info text-center" scope='col'>NACIONALIDAD </th>
+                        <th class="table-warning text-center" scope='col'>EDAD </th>
                     </tr>
                 </thead>
-
                 <tbody>
                     {celebrities_List.map(c => {
                         return (
                             <tr>
-                                <td scope='row'>{c.birthday}</td>
-                                <td scope='row'>{c.name}</td>
-                                <td scope='row'>{c.nationality}</td>
-                                <td scope='row'>{c.age}</td>
+                                <td class="table-success text-center" scope='row'>{c.birthday}</td>
+                                <td class="table-danger text-center" scope='row'>{c.name}</td>
+                                <td class="table-info text-center" scope='row'>{c.nationality}</td>
+                                <td class="table-warning text-center" scope='row'>{c.age}</td>
                             </tr>
                         )
                     })}
@@ -34,7 +34,5 @@ export const Favorites = () => {
                 </tbody>
             </table>
         </Fragment >
-        </b>
-        </p>
     )
 }

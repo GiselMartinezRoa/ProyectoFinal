@@ -12,7 +12,7 @@ function App() {
       <header className="App-header">
          {isAuthenticated ? (
           <>
-          <nav class="navbar bg-body-tertiary border">
+          <nav class="container-fluid justify-content-start">
           <Link to='/Favorites'><h5>Favoritos</h5></Link>
           <Link to='/home'><h5>Home</h5></Link>
           <Link to='/logout'><h5>Logout</h5></Link>
